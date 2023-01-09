@@ -1748,7 +1748,9 @@ void playFolder()
 #if defined DEBUG
       Serial.println(F("Audio Drama"));
 #endif
-      currentTrack = random(1, numTracksInFolder + 1);
+      currentTrack = 1;
+      shuffleQueue();
+      queueTrack = true;
       break;
     case AudioDrama_Section:
 #if defined DEBUG
@@ -2863,7 +2865,9 @@ void nextAction()
     }
     if (isPlaying())
     {
-      nextTrack(random(65536));
+      if (myFolder->mode != AudioDrama) {
+        nextTrack(random(65536));
+      }
     }
   }
 }
