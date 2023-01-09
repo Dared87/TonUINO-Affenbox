@@ -1964,7 +1964,6 @@ static void nextTrack(uint8_t track, bool force /* = false */)
 
   switch (myFolder->mode)
   {
-    case AudioDrama:
     case AudioDrama_Section:
       resetCurrentCard();
       return;
@@ -2000,6 +1999,7 @@ static void nextTrack(uint8_t track, bool force /* = false */)
       }
       break;
 
+    case AudioDrama:
     case Party:
       if (currentTrack < numTracksInFolder)
       {
